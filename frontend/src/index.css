@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased transition-colors duration-200;
+  }
+  body.dark {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+/* Glassmorphism card utilities */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-md border border-slate-200/80 shadow-sm;
+}
+.dark .glass-panel {
+  @apply bg-slate-900/60 backdrop-blur-md border-slate-800/80 shadow-lg;
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300 hover:shadow-md hover:border-slate-300/80 hover:-translate-y-0.5;
+}
+.dark .glass-panel-hover {
+  @apply hover:shadow-primary-500/5 hover:border-slate-700/80;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300/80 rounded-full hover:bg-slate-400;
+}
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-slate-700;
+}
+
+/* Hide defaults for input autofills */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover, 
+.dark input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #0f172a inset;
+  -webkit-text-fill-color: #f8fafc;
+}
